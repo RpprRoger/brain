@@ -1,0 +1,7 @@
+.brain {
+    width: 5%;
+    height: 0;
+    padding-bottom: 5%;
+    transition-property: all;
+    transition-timing-function: linear;
+}

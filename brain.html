@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="pen.css">
+    <link rel="stylesheet" type="text/css" href="sprites/sprite.css">
+    <link rel="stylesheet" type="text/css" href="sprites/sheep/sheep.css">
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="pen">
+    </div>
+    <script type="text/javascript" src="js/brain.js" ></script>
+    <script type="text/javascript" src="js/pen.js" ></script>
+    <script>
+        (function( $, document, undefined ) {
+
+            $('#pen').pen();
+        })( jQuery, document );
+    </script>
+</body>
+</html>
