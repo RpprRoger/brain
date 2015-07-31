@@ -1,6 +1,6 @@
-var http = require('http');
+var express = require('express'),
+	net = require('net');
 
-http.createServer(function() {
-	console.log(arguments.length);
+express.createServer(function( ) {
 
-}).listen( process.env.PORT || 8000);
+});

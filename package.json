@@ -1,9 +1,10 @@
 {
   "name": "brain",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,5 +14,8 @@
     "jquery": "^2.1.0",
     "socket.io": "^0.9.16",
     "browserify": "^3.32.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.5.5"
   }
 }

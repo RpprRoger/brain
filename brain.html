@@ -23,6 +23,11 @@
         (function( $, document, undefined ) {
 
             $('#pen').pen();
+
+
+            $('#pen').on('click', function(e) {
+                $('.sheep').brain('move', e.offsetX, e.offsetY);
+            });
         })( jQuery, document );
     </script>
 </body>
