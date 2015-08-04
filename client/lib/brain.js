@@ -28,6 +28,8 @@
 
 })( window.jQuery, function( $, window, undefined ) {
 
+    var nativeBind = Function.prototype.bind;
+    var slice = Array.prototype.slice;
     var uuid = 0;
     var defaults = {
         mood: 'placid',
@@ -62,7 +64,7 @@
             .addClass( 'brain' )
             .attr('data-type', this.options.animSheep)
             .append( '<div class="sprite">' )
-            .attr('id', 'brain' + uuid++);
+            .attr('id', 'brain' + (this.options.id || uuid++));
 
         this.element.parent().on('tick', this.bind('tick') );
 
@@ -73,8 +75,8 @@
         var func = typeof fn === 'function' ? fn : this[ fn ];
 
         context = context || this;
-        if( Function.prototype.bind ) {
-            return func.bind( context );
+        if( nativeBind ) {
+            return nativeBind.call( func, context );
         }
         return function() {
             return func.apply( context, arguments );
@@ -209,7 +211,6 @@
             topDeltaSqr = Math.pow( top - pos.top, 2 );
 
         return Math.abs( Math.sqrt( leftDeltaSqr + topDeltaSqr ) );
-
     };
 
     /**
@@ -220,7 +221,6 @@
      * Math.atan2( dest x delta/ dest y delta ) * (180/Math.PI) + 180
      */
     Brain.prototype.faceLocation = function( left, top ) {
-
         var pos = this.getPosition(),
             xDelta = pos.left - left,
             yDelta = top - pos.top,
@@ -276,11 +276,9 @@
     };
 
     return function( options ) {
-        var args = Array.prototype.slice.call( arguments, 1 ),
-            doPluginAction;
-
-        doPluginAction = function() {
-
+        var args = slice.call( arguments, 1 );
+        
+        function doPluginAction() {
             var brain = $.data( this, 'brain' );
 
             if( !brain ) {
@@ -291,8 +289,9 @@
 
             return this;
         };
-
-        return this.length > 1 ? this.each( doPluginAction ) : doPluginAction.call( this[0] );
+        if(this.length) {
+            return this.length > 1 ? this.each( doPluginAction ) : doPluginAction.call( this[0] );
+        }
     };
 
 });

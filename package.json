@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon index.js",
     "lint": "jshint ./",
     "hint": "jshint ./",
     "jshint": "jshint ./"
@@ -22,7 +23,10 @@
     "jshint": "^2.8.0",
     "md5": "^2.0.0",
     "send": "^0.13.0",
-    "socket.io": "^1.3.6"
+    "socket.io": "^1.3.6",
+    "socket.io-client": "^1.3.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.4.0"
+  }
 }

@@ -12,7 +12,9 @@ var clientJS = './client/client.js';
 var clientCSS = './client/client.css';
 var index = './client/client.html';
 
-var client = browserify();
+var client = browserify({
+	debug: process.env.NODE_ENV !== 'production'
+});
 client.add(clientJS);
 
 var css = new Buffer(cssConcat.concat(clientCSS));

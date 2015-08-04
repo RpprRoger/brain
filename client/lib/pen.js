@@ -27,12 +27,9 @@
     }
 
 })( window.jQuery, function( $, window, undefined ) {
-
     var defaults = {
         type: 'square',
-        css: {
-
-        },
+        css: {},
         name: 'pen',
         minSheep: 1,
         maxSheep: 5,
@@ -57,8 +54,6 @@
             .css( this.options.css )
             .css( 'border-radius', this.options.type === 'circle' ? '50%' : '0' )
             .addClass( this.options.name );
-            
-        this.addBrain();
 
         this.lastLoop = Date.now();
         this.targetCycleTime = 1000 / this.options.targetFPS;
@@ -140,10 +135,9 @@
     };
 
     return function( options ) {
-        var args = Array.prototype.slice.call( arguments, 1 ),
-            doPluginAction;
+        var args = Array.prototype.slice.call( arguments, 1 );
 
-        doPluginAction = function() {
+        function doPluginAction() {
 
             var pen = $.data( this, 'pen' );
 

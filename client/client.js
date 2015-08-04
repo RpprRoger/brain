@@ -1,7 +1,7 @@
 var $ = require('jquery');
-// jquery plugins
-require('../lib/pen')($);
-require('../lib/brain')($);
+// inject jquery plugins
+require('./lib/pen')($);
+require('./lib/brain')($);
 
 $('#pen').pen();
 
