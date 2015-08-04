@@ -8,19 +8,20 @@
     background-repeat: no-repeat;
 }
 
-/* sheep 1 */
-.sheep[data-type="1"][data-direction="down"] .sprite {
+/* sheep row 1 */
+.sheep[data-direction="down"] .sprite {
     background-position-y: 0; 
 }
-.sheep[data-type="1"][data-direction="left"] .sprite {
+.sheep[data-direction="left"] .sprite {
     background-position-y: 16.5%; 
 }
-.sheep[data-type="1"][data-direction="right"] .sprite {
+.sheep[data-direction="right"] .sprite {
     background-position-y: 30%; 
 }
-.sheep[data-type="1"][data-direction="up"] .sprite {
+.sheep[data-direction="up"] .sprite {
     background-position-y: 43.5%; 
 }
+
 /* anim */
 .sheep[data-type="1"][data-animation="1"] .sprite {
     background-position-x: 0;
@@ -32,13 +33,52 @@
     background-position-x: 18.2%;
 }
 
-
+/* sheep 2 */
+/* anim */
 .sheep[data-type="2"][data-animation="1"] .sprite {
-    
+    background-position-x: 27.3%;
 }
 .sheep[data-type="2"][data-animation="2"] .sprite {
-    
+    background-position-x: 36.3%;
 }
 .sheep[data-type="2"][data-animation="3"] .sprite {
-    
+    background-position-x: 45.5%;
+}
+
+/* sheep3 */
+/* anim */
+.sheep[data-type="3"][data-animation="1"] .sprite {
+    background-position-x: 54.4%;
+}
+.sheep[data-type="3"][data-animation="2"] .sprite {
+    background-position-x: 63.5%;
+}
+.sheep[data-type="3"][data-animation="3"] .sprite {
+    background-position-x: 72.5%;
+}
+
+/* sheep 4 */
+/* anim */
+.sheep[data-type="4"][data-animation="1"] .sprite {
+    background-position-x: 81.7%;
+}
+.sheep[data-type="4"][data-animation="2"] .sprite {
+    background-position-x: 90.7%;
+}
+.sheep[data-type="4"][data-animation="3"] .sprite {
+    background-position-x: 100%;
+}
+
+/* sheep row 2 */
+.sheep[data-direction="down"] .sprite {
+    background-position-y: 0; 
+}
+.sheep[data-direction="left"] .sprite {
+    background-position-y: 16.5%; 
+}
+.sheep[data-direction="right"] .sprite {
+    background-position-y: 30%; 
+}
+.sheep[data-direction="up"] .sprite {
+    background-position-y: 43.5%; 
 }

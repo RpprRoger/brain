@@ -42,7 +42,7 @@
         },
         name: 'sheep',
         animFrames: 3,
-        animSheep: 1
+        type: 1
     };
 
     function Brain( element, options ) {
@@ -62,7 +62,7 @@
             .css( this.options.css )
             .addClass( this.options.name )
             .addClass( 'brain' )
-            .attr('data-type', this.options.animSheep)
+            .attr('data-type', this.options.type)
             .append( '<div class="sprite">' )
             .attr('id', 'brain' + (this.options.id || uuid++));
 
