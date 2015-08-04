@@ -1,0 +1,39 @@
+.sheep .sprite {
+    position: absolute;
+    width:100%;
+    height: 100%;
+
+    background-image: url(sheep_walk.png);
+    background-size: 900% auto;
+    background-repeat: no-repeat;
+}
+.sheep[data-idle] .sprite {
+    background-image: url(sheep_eat.png);
+}
+
+.sheep[data-direction="up"] .sprite {
+    background-position-y: 8%; 
+}
+.sheep[data-direction="left"] .sprite {
+    background-position-y: 36%; 
+}
+.sheep[data-direction="down"] .sprite {
+    background-position-y: 64.5%; 
+}
+.sheep[data-direction="right"] .sprite {
+    background-position-y: 92%; 
+}
+
+/* anim */
+.sheep[data-animation="1"] .sprite {
+    background-position-x: 8%;
+}
+.sheep[data-animation="2"] .sprite {
+    background-position-x: 36%;
+}
+.sheep[data-animation="3"] .sprite {
+    background-position-x: 64.5%;
+}
+.sheep[data-animation="4"] .sprite {
+    background-position-x: 92%;
+}

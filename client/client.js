@@ -4,7 +4,8 @@ require('./lib/pen')($);
 require('./lib/brain')($);
 
 $('#pen').pen();
-$('#pen').pen('addBrain', {type: 3});
+$('#pen').pen('addBrain', {name: 'sheep'});
+
 window.pen = $('#pen').data('pen');
 $('#pen').on('click', function(e) {
     $('.sheep').brain('move', e.offsetX, e.offsetY);

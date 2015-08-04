@@ -34,14 +34,16 @@
     var defaults = {
         mood: 'placid',
         // pixels a second
-        speed: 200,
+        speed: 180,
+        // animation time = speed * animationSpeedOffset
+        animationSpeedOffset: 1.2,
         css: {
             position: 'absolute',
             top: 0,
             left: 0
         },
-        name: 'sheep',
-        animFrames: 3,
+        name: 'default-sprite',
+        animFrames: 4,
         type: 1
     };
 
@@ -69,6 +71,7 @@
         this.element.parent().on('tick', this.bind('tick') );
 
         this.element.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', this.bind('animationEnd'));
+        this.idle();
     };
 
     Brain.prototype.bind = function( fn, context ) {
@@ -84,29 +87,31 @@
     };
 
     Brain.prototype.tick = function( evt, delta ) {
-        //this.moveTowards( delta, this.destTop, this.destLeft );
         this.animate( delta );
-
-        if( !this.moving ) {
-
-            this.moving = true;
-
-        }
     };
     // store the last time we checked the timestamp, if the event gets here in the same
     // millisecond as one that has already been handled, then it came from the same movement
     // for example: if we animate top and left, then we will get 2 events for a single movement
     Brain.prototype.animationEnd = function( evt ) {
         if( this.lastEvt !== evt.timeStamp ) {
-            console.log.apply( console, arguments );
-
             this.lastEvt = evt.timeStamp;
+
+            this.idle();
         }
+    };
+
+    Brain.prototype.idle = function() {
+        this.moving = true;
+        this.element.attr('data-idle', true);
+    };
+    Brain.prototype.notIdle = function() {
+        this.moving = false;
+        this.element.removeAttr('data-idle');
     };
 
     /* animation logic */
     Brain.prototype.animate = function( delta ) {
-        var cycleTime = this.getSpeed() / this.options.animFrames;
+        var cycleTime = (this.getSpeed() * this.options.animationSpeedOffset) / this.options.animFrames;
 
         if( this.animateRunningTotal < ( this.lastChangedTime + cycleTime ) ) {
             this.animateRunningTotal += delta;
@@ -198,6 +203,7 @@
 
         this.element.css('transition-duration', time + 's');
         //this.modifyTransitionDuration( time );
+        this.notIdle();
 
         this.element.css({
             top: Math.round( top - centerOffset.top ),
